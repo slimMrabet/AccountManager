@@ -2,15 +2,15 @@ package org.sid.service;
 
 import static org.mockito.Mockito.when;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.sid.core.exception.InvalidAccountException;
 import org.sid.data.AccountRepository;
 
-import junit.framework.Assert;
 
 @RunWith(MockitoJUnitRunner.class)
 public class AccountServiceTest {
