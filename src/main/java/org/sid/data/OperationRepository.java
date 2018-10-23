@@ -1,18 +1,8 @@
 package org.sid.data;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.sid.entities.Operation;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@Repository
-public class OperationRepository {
-	public Operation setOperation(Operation operation) {
-        return operation;
-    }
+public interface OperationRepository extends JpaRepository<Operation, Long> {
 
-    public List<Operation> getAll(String accountId) {
-        return new ArrayList<>();
-    }
 }

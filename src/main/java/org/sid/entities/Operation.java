@@ -2,19 +2,27 @@ package org.sid.entities;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+@Entity
 public class Operation {
+	@Id @GeneratedValue
 	private Long num;
 	private Date dateOperation;
 	private double amount;
+	@ManyToOne
+	@JoinColumn(name= "CODE_COMPTE")
 	private Account account;
 	private String type;
 	public Operation() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Operation(Long num, Date dateOperation, double amount, Account account, String type) {
+	public Operation(Date dateOperation, double amount, Account account, String type) {
 		super();
-		this.num = num;
 		this.dateOperation = dateOperation;
 		this.amount = amount;
 		this.account = account;

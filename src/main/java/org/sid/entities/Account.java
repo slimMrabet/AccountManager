@@ -2,21 +2,30 @@ package org.sid.entities;
 
 import java.util.Collection;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+@Entity
 public class Account {
+	@Id @GeneratedValue
 	private String id;
 	private double balance;
+	@ManyToOne
+	@JoinColumn(name="CODE_CLIENT")
 	private Client client;
+	@OneToMany(mappedBy="account")
 	private Collection<Operation> operations;
 	public Account() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Account(String id, double balance, Client client, Collection<Operation> operations) {
+	public Account(double balance, Client client) {
 		super();
-		this.id = id;
 		this.balance = balance;
 		this.client = client;
-		this.operations = operations;
 	}
 	public String getId() {
 		return id;
