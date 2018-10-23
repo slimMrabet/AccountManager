@@ -12,12 +12,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class OperationService {
+public class OperationService implements OperationServiceInterface {
 	@Autowired
 	AccountRepository accountRepository;
 	@Autowired
 	OperationRepository operationRepository;
 	
+	@Override
 	public Operation setOperation(String accountId, double amount, String operationType) throws InvalidParamsException {
 		if (amount < 0) {
 			throw new InvalidParamsException();
@@ -32,6 +33,7 @@ public class OperationService {
 		return operation;
 	}
 	
+	@Override
 	public List<Operation> getAll(String accountId) {
 		return operationRepository.getByAccount(accountId);
 	}

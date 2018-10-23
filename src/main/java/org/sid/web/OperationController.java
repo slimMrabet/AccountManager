@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class OperationController {
-	@Autowired OperationServiceInterface operationService;
+	@Autowired 
+	OperationServiceInterface operationService;
 	
 	@RequestMapping(value="/operations/{accountId}", method=RequestMethod.GET)
 	public List<Operation> getAll(@PathVariable(name="accountId") String accountId) {
