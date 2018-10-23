@@ -52,7 +52,6 @@ public class OperationServiceTest {
 		double amount = -100;
 		Operation operation = new Operation();
 		operation.setType(Resources.Withdrawal);
-		Account account = new Account();
 	//	when(accountRepository.getAccount(accountId)).thenReturn(account);
 		//when
 		operationService.setOperation(accountId, amount, operation.getType());
@@ -69,7 +68,7 @@ public class OperationServiceTest {
 		Operation operation = new Operation();
 		operation.setType(Resources.Deposit);
 		Account account = new Account();
-		when(accountRepository.getAccount(accountId)).thenReturn(account);
+		when(accountRepository.getOne(accountId)).thenReturn(account);
 	    Operation operationToSave = operation;
 	  //  when(operationRepository.setOperation(operationToSave)).thenReturn(operationToSave);
         //when
@@ -88,7 +87,7 @@ public class OperationServiceTest {
 		Operation operation = new Operation();
 		operation.setType(Resources.Withdrawal);
 		Account account = new Account();
-		when(accountRepository.getAccount(accountId)).thenReturn(account);
+		when(accountRepository.getOne(accountId)).thenReturn(account);
 	    Operation operationToSave = operation;
 	  //  when(operationRepository.setOperation(operationToSave)).thenReturn(operationToSave);
         //when

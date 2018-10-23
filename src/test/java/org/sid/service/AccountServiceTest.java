@@ -24,7 +24,7 @@ public class AccountServiceTest {
 
         //given
         String accountId = "myId";
-        when(accountRepository.getAccount(accountId)).thenReturn(null);
+        when(accountRepository.getOne(accountId)).thenReturn(null);
 
         //when
         accountService.getAccount(accountId);
