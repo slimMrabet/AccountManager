@@ -12,7 +12,7 @@ public class AccountService {
     AccountRepository accountRepository;
 
 	public Account getAccount(String accountId) throws InvalidAccountException {
-		Account account =  accountRepository.getAccount(accountId);
+		Account account =  accountRepository.getOne(accountId);
 		if (account == null) {
 			  throw new InvalidAccountException();
 		}

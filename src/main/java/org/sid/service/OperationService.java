@@ -23,17 +23,17 @@ public class OperationService {
 			throw new InvalidParamsException();
 		}
 		Operation operation = new Operation();
-		Account account = accountRepository.getAccount(accountId);
+		Account account = accountRepository.getOne(accountId);
 		operation.setAmount(amount);
 		operation.setDateOperation(new Date());
 		operation.setType(operationType);
 		operation.setAccount(account);
-		operationRepository.setOperation(operation);
+		operationRepository.save(operation);
 		return operation;
 	}
 	
 	public List<Operation> getAll(String accountId) {
-		return operationRepository.getAll(accountId);
+		return operationRepository.getByAccount(accountId);
 	}
 
 }
