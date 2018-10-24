@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 public class Account {
 	@Id @GeneratedValue
 	private String id;
-	private double balance;
+	private int balance;
 	@ManyToOne
 	@JoinColumn(name="CODE_CLIENT")
 	private Client client;
@@ -22,7 +22,7 @@ public class Account {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Account(double balance, Client client) {
+	public Account(int balance, Client client) {
 		super();
 		this.balance = balance;
 		this.client = client;
@@ -33,10 +33,10 @@ public class Account {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public double getBalance() {
+	public int getBalance() {
 		return balance;
 	}
-	public void setBalance(double balance) {
+	public void setBalance(int balance) {
 		this.balance = balance;
 	}
 	public Client getClient() {

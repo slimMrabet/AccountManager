@@ -3,6 +3,7 @@ package org.sid.web;
 import java.util.List;
 
 import org.sid.core.exception.InvalidParamsException;
+import org.sid.core.exception.UnauthorizedOperationException;
 import org.sid.entities.Operation;
 import org.sid.service.OperationServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class OperationController {
 	}
 	
 	@RequestMapping(value="/setOperation/{accountId}/{amount}/{type}", method=RequestMethod.POST)
-	public Operation setOperation( @PathVariable(name="accountId") String accountId, @PathVariable(name="amount") Double amount, @PathVariable(name="type") String type ) throws InvalidParamsException {
+	public Operation setOperation( @PathVariable(name="accountId") String accountId, @PathVariable(name="amount") int amount, @PathVariable(name="type") String type ) throws InvalidParamsException, UnauthorizedOperationException {
 		return operationService.setOperation(accountId, amount, type);
 		
 	}
