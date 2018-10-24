@@ -38,7 +38,6 @@ public class OperationService implements OperationServiceInterface {
 				newBalance = currentBalance - amount;
 				if (newBalance < Resources.minBalance)
 					throw new UnauthorizedOperationException();
-				account.setBalance(newBalance);
 				break;
 			case Resources.Deposit:
 				newBalance = currentBalance + amount;
@@ -46,7 +45,7 @@ public class OperationService implements OperationServiceInterface {
 			default:
 				throw new InvalidParamsException();
 		}
-		
+		account.setBalance(newBalance);
 		operationRepository.save(operation);
 		return operation;
 	}
